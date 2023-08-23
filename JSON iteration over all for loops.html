@@ -1,0 +1,50 @@
+//1.For the given JSON iterate over all for loops(for, for in, for of, forEach)
+//using the JSON file from the restcountries.com api
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON iteration</title>
+</head>
+<body>
+    <script>
+
+        //XMLHTTP request object
+        var request=new XMLHttpRequest()
+
+        //open a connection
+        request.open('GET','https://restcountries.com/v3.1/all')
+
+        //sendind a connection
+        request.send()
+
+        //onload event
+        request.onload=function(){
+        //to iterate JSON-->object
+        var data=JSON.parse(request.response)
+            
+            //for loop
+            for(var i=0;i<data.length;i++){
+                console.log(data[i])
+            }
+
+            //for in loop
+            for(var i in data){
+                console.log(data[i])
+            }
+
+            //for of loop
+            for(var i of data){
+                console.log(i)
+            }
+
+            //forEach 
+            data.forEach(i => {
+                console.log(i)
+            });
+        }
+
+    </script>
+</body>
+</html>
